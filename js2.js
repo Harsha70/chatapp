@@ -48,7 +48,9 @@ app.get('/search',function(req,res){
 	})
 })
 
-app.listen(5000, function () {
+app.set('port',process.env.PORT || 5000)
+
+app.listen(app.set('port'), function () {
   console.log('Example app listening on port 5000!')
 })
 
