@@ -6,6 +6,8 @@ app.set('view engine','ejs');
 //opening home h2.html page using express
 app.use(express.static(__dirname+'/public_static'))
 
+app.set('port',process.env.PORT || 5000)
+
 var Datastore=require('nedb')
 var db=new Datastore({filename:'store2.db',autoload:true})
 
@@ -48,7 +50,7 @@ app.get('/search',function(req,res){
 	})
 })
 
-app.set('port',process.env.PORT || 5000)
+
 
 app.listen(app.set('port'), function () {
   console.log('Example app listening on port 5000!')
