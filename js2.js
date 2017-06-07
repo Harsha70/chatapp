@@ -34,7 +34,7 @@ app.get('/loginsubmit',function(req,res){
 	db.find({'name':req.query.name,'password':req.query.password},function(err,resu1){
 		if(resu1.length>0){
 			db.find({},function(err2,resu2){
-			res.render('login',{result1:resu1.name,result2:resu2})
+			res.render('login',{result1:resu1,result2:resu2})
 			//console.log(result)
 			})	
 		}else{
@@ -45,8 +45,10 @@ app.get('/loginsubmit',function(req,res){
 })
 
 app.get('/search',function(req,res){
-	db.find({'name':req.query.search},function(err,result){
-		res.render('login',{results:result})
+	db.find({'name':req.query.search,'password':req.query.pwd},function(err,result){
+		if(result.length>0){
+		res.render('xyz',{results:result})
+	}
 	})
 })
 
