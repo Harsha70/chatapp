@@ -4,10 +4,15 @@
 	<title>login</title>
 </head>
 <body style="background-color: #8bb18b">
-<h1>welcome to login page <%=JSON.stringify(result1)%></h1>
+
+
+<% for(var i=0;i<result1.length;i++){%>
+	<h1>welcome to login page <%= result1[i].name%> </h1>
+	<h2>click to chat with a frnd</h2>
+<%}%>
 
 <% for(var i=0;i<result2.length;i++){%>
-	<li><%= result2[i].name%></li>
+<a href="/chat/<%=result2[i].name%>" type="submit" class="btn btn-default btn-xs" role="button"><li><%= result2[i].name%></li></a>
 <%}%>
 
 </body>
